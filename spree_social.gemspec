@@ -14,13 +14,15 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'spree_core', '~> 2.2.0.beta'
+  s.add_dependency 'spree_core', '~> 2.1.0'
   s.add_dependency 'omniauth'
   s.add_dependency 'oa-core'
   s.add_dependency 'omniauth-twitter'
   s.add_dependency 'omniauth-facebook'
   s.add_dependency 'omniauth-github'
   s.add_dependency 'omniauth-google-oauth2'
+  s.add_dependency 'omniauth-vkontakte'
+  s.add_dependency 'omniauth-odnoklassniki'
 
   s.add_development_dependency 'capybara', '~> 2.1'
   s.add_development_dependency 'database_cleaner', '1.0.1'
