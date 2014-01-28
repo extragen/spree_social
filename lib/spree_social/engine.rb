@@ -1,9 +1,11 @@
 module SpreeSocial
   OAUTH_PROVIDERS = [
-    ["Facebook", "facebook"],
-    ["Twitter", "twitter"],
-    ["Github", "github"],
-    ["Google", "google_oauth2"]
+    ['Vkontakte', 'vkontakte'],
+    ['Odnoklassniki', 'odnoklassniki'],
+    ['Facebook', 'facebook'],
+    ['Twitter', 'twitter'],
+    ['Github', 'github'],
+    ['Google', 'google_oauth2']
   ]
 
   class Engine < Rails::Engine
@@ -16,12 +18,12 @@ module SpreeSocial
       g.test_framework :rspec
     end
 
-    initializer "spree_social.environment", :before => "spree.environment" do |app|
+    initializer 'spree_social.environment', :before => 'spree.environment' do |app|
       Spree::SocialConfig = Spree::SocialConfiguration.new
     end
 
     def self.activate
-      Dir.glob(File.join(File.dirname(__FILE__), "../../app/**/*_decorator*.rb")) do |c|
+      Dir.glob(File.join(File.dirname(__FILE__), '../../app/**/*_decorator*.rb')) do |c|
         Rails.configuration.cache_classes ? require(c) : load(c)
       end
     end
@@ -61,7 +63,7 @@ module OmniAuth
                               'webos|amoi|novarra|cdm|alcatel|pocket|ipad|iphone|mobileexplorer|' +
                               'mobile'
       def request_phase
-        options[:scope] ||= "email,offline_access"
+        options[:scope] ||= 'email,offline_access'
         options[:display] = mobile_request? ? 'touch' : 'page'
         super
       end
